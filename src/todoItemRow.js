@@ -25,14 +25,57 @@ const CLASSNAME = {
 
 export default function renderTodoItemRow({ id, content, createdAt, completedAt, done }) {
   return createElement('div', { className: CLASSNAME.LIST_ROW }, [
-    createElement('div', { className: CLASSNAME.LIST_ROW_ID }, [id]),
-    createElement('div', { className: CLASSNAME.LIST_ROW_CONTENT }, [content]),
+    createElement(
+      'div',
+      {
+        className: CLASSNAME.LIST_ROW_ID,
+        dataset: {
+          testId: `todoItem__id`,
+        },
+      },
+      [id]
+    ),
+    createElement(
+      'div',
+      {
+        className: CLASSNAME.LIST_ROW_CONTENT,
+        dataset: {
+          testId: `todoItem__content`,
+        },
+      },
+      [content]
+    ),
     createElement('div', { className: CLASSNAME.LIST_ROW_DONE }, [
-      createElement('input', { type: 'checkbox', checked: done, disabled: true }),
+      createElement('input', {
+        type: 'checkbox',
+        dataset: {
+          testId: `todoItem__done`,
+        },
+        checked: done,
+        disabled: true,
+      }),
     ]),
     createElement('div', { className: CLASSNAME.LIST_ROW_DATE }, [
-      createElement('div', { className: CLASSNAME.LIST_ROW_DATE_CREATED_AT }, [dateFormat(createdAt)]),
-      createElement('div', { className: CLASSNAME.LIST_ROW_DATE_COMPLETED_AT }, [dateFormat(completedAt)]),
+      createElement(
+        'div',
+        {
+          className: CLASSNAME.LIST_ROW_DATE_CREATED_AT,
+          dataset: {
+            testId: `todoItem__created-at`,
+          },
+        },
+        [dateFormat(createdAt)]
+      ),
+      createElement(
+        'div',
+        {
+          className: CLASSNAME.LIST_ROW_DATE_COMPLETED_AT,
+          dataset: {
+            testId: `todoItem__completed-at`,
+          },
+        },
+        [dateFormat(completedAt)]
+      ),
     ]),
   ])
 }

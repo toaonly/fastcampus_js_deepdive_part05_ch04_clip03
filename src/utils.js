@@ -1,7 +1,13 @@
 export function dateFormat(strDate) {
-  const year = strDate.substring(0, 4)
-  const month = strDate.substring(5, 7)
-  const date = strDate.substring(8, 10)
+  if (strDate == null) return ''
+
+  const dateObject = new Date(strDate)
+
+  if (`${dateObject}` === 'Invalid Date') return ''
+
+  const year = dateObject.getFullYear()
+  const month = `${dateObject.getMonth() + 1}`.padStart(2, '0')
+  const date = `${dateObject.getDate()}`.padStart(2, '0')
 
   return `${year}.${month}.${date}`
 }
