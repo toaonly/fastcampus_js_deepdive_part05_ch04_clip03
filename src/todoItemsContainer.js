@@ -1,6 +1,5 @@
 import createElement from './createElement'
-import renderTodoItem from './todoItem'
-import { dateFormat } from './utils'
+import renderTodoItemRow from './todoItemRow'
 
 const CLASSNAME = {
   CONTAINER: 'todo-items-container',
@@ -30,7 +29,7 @@ const CLASSNAME = {
   },
 }
 
-export default function renderTodoItems({ todoItems }) {
+export default function renderTodoItemRows({ todoItems }) {
   return createElement(
     'div',
     {
@@ -40,7 +39,7 @@ export default function renderTodoItems({ todoItems }) {
       createElement(
         'div',
         { className: CLASSNAME.LIST },
-        todoItems.map(todoItem => renderTodoItem(todoItem))
+        todoItems.map(todoItem => renderTodoItemRow(todoItem))
       ),
     ]
   )

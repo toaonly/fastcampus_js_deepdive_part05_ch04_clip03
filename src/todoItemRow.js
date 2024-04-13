@@ -23,7 +23,7 @@ const CLASSNAME = {
   },
 }
 
-export default function renderTodoItem({ id, content, createdAt, completedAt, done }) {
+export default function renderTodoItemRow({ id, content, createdAt, completedAt, done }) {
   return createElement('div', { className: CLASSNAME.LIST_ROW }, [
     createElement('div', { className: CLASSNAME.LIST_ROW_ID }, [id]),
     createElement('div', { className: CLASSNAME.LIST_ROW_CONTENT }, [content]),
